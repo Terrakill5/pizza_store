@@ -32,6 +32,8 @@ import BaseModal from "./ui/BaseModal.vue";
 //import TheHeader from "./components/TheHeader.vue";
 import { useAuthStore } from "./store/Auth.js";
 import { onMounted} from "vue";
+import { useRouter } from "vue-router";
+const router = useRouter();
 //import { getAuth, onAuthStateChanged } from "firebase/auth";
 const usarAuth = useAuthStore();
 //const isLoggedIn = ref(false); para  verificar que esta logeado
@@ -52,6 +54,11 @@ const usarAuth = useAuthStore();
 }); */
 onMounted(() => {
   usarAuth.comprobacionAuth;
+  router.beforeEach(async (to)=> {
+    if (to.name === "register" && localStorage.getItem("userId")) {
+      router.push("/pizzastore");
+    } 
+})
 })
 </script>
 

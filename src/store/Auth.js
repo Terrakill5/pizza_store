@@ -50,6 +50,7 @@ export const useAuthStore = defineStore("auth", {
           setTimeout(function () {
             store.cambiarMostrar();
           }, 2000);
+          localStorage.setItem("userId", "logeado");
           this.cambiarPagina = true;
         }
       );
@@ -68,6 +69,7 @@ export const useAuthStore = defineStore("auth", {
           setTimeout(function () {
             store.cambiarMostrar();
           }, 2000);
+          localStorage.setItem("userId", "logeado");
 
           this.cambiarPagina = true;
         })
@@ -96,6 +98,7 @@ export const useAuthStore = defineStore("auth", {
       await signOut(this.auth)
         .then(() => {
           this.cambiarLog(false);
+          localStorage.removeItem("userId");
         })
         .catch((error) => {
           console.log(error);
