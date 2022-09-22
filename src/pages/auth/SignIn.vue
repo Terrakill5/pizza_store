@@ -1,5 +1,6 @@
 <template>
-  <div class="area">
+  <div class="area-flex">
+<div class="area">
     <img
       src="../../../img/logo_principal_editado.jpg"
       alt="logo principal de la pagina"
@@ -35,6 +36,8 @@
       <boton-submit @click="registrarse">Registrarse con email</boton-submit>
     </p>
   </div>
+  </div>
+  
 </template>
 
 <script setup>
@@ -114,5 +117,14 @@ input {
 svg {
   height: 15px;
   width: 15px;
+}
+
+.area-flex {
+  width: 100%;
+  height: 100%;
+  padding: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>

@@ -50,7 +50,6 @@ const usarAuth = useAuthStore();
     }
   });
 }); */
-
 onMounted(() => {
   usarAuth.comprobacionAuth;
 })
@@ -60,7 +59,6 @@ onMounted(() => {
 body {
   margin: 0;
 }
-
 a {
   text-decoration: none;
 }
@@ -73,50 +71,39 @@ a {
   grid-template-columns: 1fr 1fr; /* fracciona en dos la pantalla principal */
   height: 100vh; /* hace que la altura sea igual a lo que se ve en pantalla  */
 }
-
 .right {
   /* display: flex; */
   align-items: center;
   justify-content: center;
 }
-
 .imagenPizza {
   width:100%;
   height:100%;
 }
-
 .theHeader {
   text-align: center;
 }
-
 .right__center {
   height: 800px;
 }
-
 /* .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
 }
-
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s ease-out;
 } */
-
 @media (max-width: 450px) {
   .left {
     display: none;
   }
 }
-
 @media (min-width:365px) and (max-width: 450px) {
   .container {
     display:block;
   }
 }
-
 @media (min-width: 1024px) {
-
 }
 </style>
-
