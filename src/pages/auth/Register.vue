@@ -5,16 +5,24 @@
         src="../../../img/logo_principal_editado.jpg"
         alt="logo principal de la pagina"
       />
-      <h1>Bienvenido</h1>
-      <p class="gris_ligero">A las mejores pizzas del pais</p>
-      <div class="grupoInput">
-        <p>
+      <titulo>Bienvenido</titulo>
+      <p class="gris_ligero m-4">A las mejores pizzas del pais</p>
+      <div class="grupoInput" :class="{ errorInput: userNameError }">
+        <!-- <p>
           <input
             :class="{ errorInput: userNameError }"
             type="text"
             placeholder="Email"
             v-model="email"
           />
+        </p> -->
+        <p>
+          <input-animado
+            v-model="email"
+            :enunciado="'Email'"
+            :tipo="'email'"
+            :error="userNameError"
+          ></input-animado>
         </p>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
           <path
@@ -22,14 +30,22 @@
           />
         </svg>
       </div>
-      <div class="grupoInput">
-        <p>
+      <div class="grupoInput" :class="{ errorInput: passwordError }">
+        <!-- <p>
           <input
             :class="{ errorInput: passwordError }"
             type="password"
             placeholder="Password"
             v-model="password"
           />
+        </p> -->
+        <p>
+          <input-animado
+            v-model="password"
+            :enunciado="'Password'"
+            :tipo="'password'"
+            :error="passwordError"
+          ></input-animado>
         </p>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
           <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
@@ -41,12 +57,12 @@
       <p>
         <boton-submit @click="comprobacionCuenta">Registrarse</boton-submit>
       </p>
-      <p><boton-submit @click="logearse">Logearse con email</boton-submit></p>
-      <p>
+      <p><boton-submit @click="logearse">Log In</boton-submit></p>
+      <!-- <p>
         <boton-submit @click="signInWithGoogle"
           >Logearse con Google</boton-submit
         >
-      </p>
+      </p> -->
     </div>
   </div>
 </template>
@@ -57,6 +73,8 @@ import { useRouter } from "vue-router";
 import { useStore } from "../../store/Modal.js";
 import { useAuthStore } from "../../store/Auth.js";
 import BotonSubmit from "../../ui/BotonSubmit.vue";
+import InputAnimado from "../../ui/InputAnimado.vue";
+import Titulo from "../../ui/Titulo.vue";
 const usarModal = useStore();
 const router = useRouter();
 const usarAuth = useAuthStore();
@@ -113,13 +131,13 @@ const logearse = () => {
   router.push("/sign-in");
 };
 
-async function signInWithGoogle() {
+/* async function signInWithGoogle() {
   await usarAuth.signInWithGoogle();
   if (usarAuth.permite) {
     router.push("/pizzastore");
   }
   usarAuth.falsoPagina();
-}
+} */
 </script>
 
 <style scoped>
@@ -131,10 +149,6 @@ h1 {
   margin-bottom: 10px;
 }
 
-.errorInput {
-  border: 1px solid red;
-}
-
 .area-flex {
   width: 100%;
   height: 100%;
@@ -144,19 +158,27 @@ h1 {
   justify-content: center;
 }
 
+.errorInput {
+  border: 1px solid red;
+}
+
 .gris_ligero {
   color: darkgray;
   margin-top: 5px;
 }
 
 .grupoInput {
+  margin: 0 auto;
   position: relative;
+  padding: 10px;
+  overflow: hidden;
+  width: 250px;
 }
 
 .grupoInput svg {
   position: absolute;
-  top: 6px;
-  right: calc(50% - 80px);
+  top: 40px;
+  right: calc(50% - 100px);
 }
 
 input {

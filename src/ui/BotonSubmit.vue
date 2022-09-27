@@ -1,6 +1,7 @@
 <template>
-    <button class="amarillo" :to="anyProps.link">
+    <button class="amarillo m-2" :to="anyProps.link">
         <slot></slot>
+        <span></span><span></span><span></span><span></span>
     </button>
 
 </template>
@@ -17,16 +18,60 @@ const anyProps = defineProps({
 <style scoped>
 
 button {
-  height: 25px;
-  width: 177px;
-  border: 0px solid;
-}
-.amarillo {
-  background-color:rgba(237, 237, 72, 0.67);
-  
+    --c: goldenrod;
+    color: var(--c);
+    font-size: 16px;
+    border: 0.3em solid var(--c);
+    border-radius: 0.5em;
+    width: 12em;
+    height: 3em;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: sans-serif;
+    letter-spacing: 0.1em;
+    text-align: center;
+    line-height: 2em;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: 0.5s;
+    margin: 1em;
 }
 
-.amarillo:hover {
-  background-color: rgb(202, 121, 14);
+button span {
+    position: absolute;
+    width: 25%;
+    height: 100%;
+    background-color: var(--c);
+    transform: translateY(150%);
+    border-radius: 50%;
+    left: calc((var(--n) - 1) * 25%);
+    transition: 0.5s;
+    transition-delay: calc((var(--n) - 1) * 0.1s);
+    z-index: -1;
+}
+
+button:hover {
+    color: black;
+}
+
+button:hover span {
+    transform: translateY(0) scale(2);
+}
+
+button span:nth-child(1) {
+    --n: 1;
+}
+
+button span:nth-child(2) {
+    --n: 2;
+}
+
+button span:nth-child(3) {
+    --n: 3;
+}
+
+button span:nth-child(4) {
+    --n: 4;
 }
 </style>

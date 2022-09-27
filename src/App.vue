@@ -1,8 +1,8 @@
 <template>
-  <div class="container">
-    <section class="left">
+  
+    <!-- <section class="left">
       <img class="imagenPizza" src="https://thefoodtech.com/wp-content/uploads/2022/02/pizza-con-diversos-ingredientes.jpg" alt="Pizza de presentacion">
-    </section>
+    </section> -->
     <section class="right">
       <div class="enfoque">
         <!-- <div class="theHeader">
@@ -24,7 +24,6 @@
         </div>
       </div>
     </section>
-  </div>
 </template>
 
 <script setup>
@@ -72,14 +71,7 @@ a {
 </style>
 
 <style scoped>
-.container {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* fracciona en dos la pantalla principal */
-  height: 100vh; /* hace que la altura sea igual a lo que se ve en pantalla  */
-}
 .right {
-  /* display: flex; */
   align-items: center;
   justify-content: center;
 }

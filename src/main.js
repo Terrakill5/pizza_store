@@ -2,6 +2,7 @@ import { createApp } from "vue";
 import { createPinia } from "pinia";
 import App from "./App.vue";
 import router from "./router.js";
+import './styles/app.css';
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
